@@ -67,25 +67,27 @@
 
 // 8) usando un ciclo logga i numeri da 1 a 100 mettendo un asterisco vicino ai multipli di 7
 
-// for (i=1 ; i<=100; i++){
+// for (let i=1 ; i<=100; i++){
 //     if(i%7===0){
-//         console.log(i+" * ");
+//         console.log(i+" * "); 
+//     }
+//     else{
+//         console.log(i);
         
 //     }
 // }
 
 // 9) usando un ciclo logga i numeri da 1 a 100 mettendo un asterisco vicino ai quadrati perfetti
 
-// for (i=1 ; i<=100; i++){
-//     const quadrato= Math.sqrt(i);
-//     if(quadrato%1===0){
+// for (let i=1 ; i<=100; i++){
+//     let quadrato= Math.sqrt(i);
+//     if(quadrato % 1=== 0){
 //         console.log(i+ "*");
 //     }
 //     else{
 //         console.log(i);
         
 //     }
-
 //     }
 
 
@@ -99,9 +101,8 @@
 
 // 11) chiedi all'utente due numeri e logga tutti i numeri pari compresi tra i numeri forniti dall'utente
 
-// const num1=parseInt(prompt("Dimmi un primo numero:"));
-// const num2=parseInt(prompt("Dimmi un secondo numero:"));
-
+// let num1=parseInt(prompt("Dimmi un primo numero:"));
+// let num2=parseInt(prompt("Dimmi un secondo numero:"));
 
 //     if(num1>num2){
 //         for(let i=num2; i<=num1; i++){
@@ -121,8 +122,8 @@
 
 
 
-// 12) chiedi all'utente quanti anni ha e digli quante ore ha gia' vissuto
+// // 12) chiedi all'utente quanti anni ha e digli quante ore ha gia' vissuto
 
-let eta =parseInt(prompt("Quanti anni hai?"));
-let ore = eta * 365 * 24; // anni × giorni × ore
-alert("Hai vissuto circa " + ore + " ore.");
+// let eta =parseInt(prompt("Quanti anni hai?"));
+// const ore = eta * 365 * 24; // anni × giorni × ore
+// alert("Hai vissuto circa " + ore + " ore.");
