@@ -357,6 +357,74 @@
 // console.log(res6);
 
 // 19) Scrivere una funzione che dati in input due numeri ritorni il maggiore
+
+// function checkMaggiore(num1, num2) {
+//    if(num1>num2){
+//     return num1;
+//    }
+//    else {
+//     return num2;
+//    }
+// } 
+
+// const checkMaggiore = (num1, num2) => num1 > num2 ? num1 : num2; // ? operatore ternario sostituisce if... else se 
+//                                                     // la condizione è true restituisce num1 altrimenti(:) num2
+// //---------Più compatta---------------------
+
+// function maggiore(num1, num2) {
+//     return Math.max(num1, num2);
+// }
+//  const maggiore= checkMaggiore(5,20);
+//  console.log(maggiore);
+ 
+
 // 20) Scrivere una funzione che dati in input due stringhe ritorni la più corta
+// function MaxString(str1, str2) {
+//     if (str1.length > str2.length) {
+//         return str1;
+//     }
+//     else{
+//         return str2;
+//     }
+// }
+
+// const checkString= MaxString("ciao come stai?", "sto bene");
+// console.log(checkString);
+
+// const stringMax= (str1, str2)=> str1.length> str2.length? str1:str2
+
+// const checkString2= stringMax("ciao come stai?", "sto bene");
+// console.log(checkString2);
+
 // 21) Scrivere una funzione che data in input una stringa ritorni la sua iniziale;
-// 22) Scrivere una funzione che dati in input una stringa e un numero, logghi la stringa tante volte quante il numero dato
+
+// function inizialeString (str3) {
+//     return str3[0];    
+// }
+
+// const iniziale= inizialeString('Ciao');
+// console.log(iniziale);
+
+// const returnStart= str4=> str4[0];
+// const returnStartStr= returnStart('Mamma mia');
+// console.log(returnStartStr);
+
+
+// 22) Scrivere una funzione che dati in input una stringa e un numero, 
+// logghi la stringa tante volte quante il numero dato
+
+// function repString (str5, multiplier){
+//     let multiString= '';
+//     for (let i = 0; i < multiplier; i++) {
+//        multiString+= str5;
+        
+//     }
+//     return multiString;
+
+// }
+// const stringProvaMulti= repString('ciao ', 10);
+// console.log(stringProvaMulti);
+
+const multiStringLambda= (str5, multiplier) => str5.repeat(multiplier);
+const stringProvaMulti2 = multiStringLambda ('Credere \n', 25);
+console.log(stringProvaMulti2);
