@@ -309,10 +309,54 @@
 
 
 //16) Scrivere una funzione che mi dice se un numero è pari
-function checkEven (inputNumber){
-    const isEven= inputNumber % 2=== 0;
-    return isEven;
-}
+// function checkEven (inputNumber){
+//     const isEven= inputNumber % 2=== 0;
+//     return isEven;
+// }
 
-const checkEvenLambda = inputNumber => inputNumber % 2=== 0;
+// const checkEvenLambda = inputNumber => inputNumber % 2=== 0;
 
+// const res1= checkEven(9);
+// console.log(res1);
+
+// const res2 = checkEvenLambda(10);
+// console.log(res2);
+
+//17) Scrivere una funzione che moltiplichi una stringa per un numero
+// es: se inserisco 'cacca' e 3; l'output sarà 'caccacaccacacca'
+
+// function multiplyString (inputString, multiplier){
+//     let multiplierString= '';
+//     for(let i=0 ; i< multiplier; i++){
+//         multiplierString += inputString;
+//     }
+//     return multiplierString;
+// }
+
+// const res3= multiplyString('cacca',3);
+// console.log(res3);
+
+// const multiplierStringLambda= (inputString, multiplier) => inputString.repeat(multiplier);
+
+// const res4= multiplierStringLambda('cacca ',10);
+// console.log(res4);
+
+//18) Scrivi una funzione che dato un numero mi dice se è intero oppure no
+
+// function checkInteger(n){
+//     const isInteger= n % 1===0;
+//     return isInteger;
+// }
+
+// const checkIntegerLambda = n=> n % 1===0;
+
+// const res5= checkInteger(5);
+// console.log(res5);
+
+// const res6= checkIntegerLambda(6.5);
+// console.log(res6);
+
+// 19) Scrivere una funzione che dati in input due numeri ritorni il maggiore
+// 20) Scrivere una funzione che dati in input due stringhe ritorni la più corta
+// 21) Scrivere una funzione che data in input una stringa ritorni la sua iniziale;
+// 22) Scrivere una funzione che dati in input una stringa e un numero, logghi la stringa tante volte quante il numero dato
