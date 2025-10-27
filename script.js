@@ -306,3 +306,13 @@
 //          chessboard+= '\n';
 // }
 // console.log(chessboard);
+
+
+//16) Scrivere una funzione che mi dice se un numero è pari
+function checkEven (inputNumber){
+    const isEven= inputNumber % 2=== 0;
+    return isEven;
+}
+
+const checkEvenLambda = inputNumber => inputNumber % 2=== 0;
+
