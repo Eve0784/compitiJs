@@ -356,9 +356,11 @@
 // const res6= checkIntegerLambda(6.5);
 // console.log(res6);
 
+//-------------------------------------------------casa--------------------------------------------------------------------
+
 // 19) Scrivere una funzione che dati in input due numeri ritorni il maggiore
 
-// function checkMaggiore(num1, num2) {
+// function findMaxNum(num1, num2) {
 //    if(num1>num2){
 //     return num1;
 //    }
@@ -366,44 +368,57 @@
 //     return num2;
 //    }
 // } 
+// function findMaxNum(num1, num2) {
+//     let choosenNumber;
+//     if (num1 <num2){
+//         choosenNumber= num2;
+//     }
+//     else{
+//         choosenNumber= num2;
+//     }
+// }
+// return choosenNumber;
+// console.log(findMax(50,25));
 
-// const checkMaggiore = (num1, num2) => num1 > num2 ? num1 : num2; // ? operatore ternario sostituisce if... else se 
+
+
+// const findMaxNum = (num1, num2) => num1 > num2 ? num1 : num2; // ? operatore ternario sostituisce if... else se 
 //                                                     // la condizione è true restituisce num1 altrimenti(:) num2
 // //---------Più compatta---------------------
 
-// function maggiore(num1, num2) {
+// function maxNum(num1, num2) {
 //     return Math.max(num1, num2);
 // }
-//  const maggiore= checkMaggiore(5,20);
-//  console.log(maggiore);
+//  const maxNum= findMaxNum(5,20);
+//  console.log(maxNum);
  
 
 // 20) Scrivere una funzione che dati in input due stringhe ritorni la più corta
-// function MaxString(str1, str2) {
+// function findShortestString(str1, str2) {
 //     if (str1.length > str2.length) {
-//         return str1;
+//         return str2;
 //     }
 //     else{
-//         return str2;
+//         return str1;
 //     }
 // }
 
-// const checkString= MaxString("ciao come stai?", "sto bene");
+// const checkString= findShortestString("ciao come stai?", "sto bene");
 // console.log(checkString);
 
-// const stringMax= (str1, str2)=> str1.length> str2.length? str1:str2
+// const stringMin= (str1, str2)=> str1.length> str2.length? str1:str2
 
-// const checkString2= stringMax("ciao come stai?", "sto bene");
+// const checkString2= stringMin("ciao come stai?", "sto bene");
 // console.log(checkString2);
 
 // 21) Scrivere una funzione che data in input una stringa ritorni la sua iniziale;
 
-// function inizialeString (str3) {
+// function findFirstChar (str3) {
 //     return str3[0];    
 // }
 
-// const iniziale= inizialeString('Ciao');
-// console.log(iniziale);
+// const firstChart= findFirstChar('Ciao');
+// console.log(firstChart);
 
 // const returnStart= str4=> str4[0];
 // const returnStartStr= returnStart('Mamma mia');
@@ -422,9 +437,16 @@
 //     return multiString;
 
 // }
-// const stringProvaMulti= repString('ciao ', 10);
+
+function repString (str5, multiplier){
+    for (let i = 0; i < multiplier; i++) {
+       console.log(str5);  
+    }
+}
+
+// const stringProvaMulti= repString('ciao', 10);
 // console.log(stringProvaMulti);
 
-const multiStringLambda= (str5, multiplier) => str5.repeat(multiplier);
-const stringProvaMulti2 = multiStringLambda ('Credere \n', 25);
-console.log(stringProvaMulti2);
+// const multiStringLambda= (str5, multiplier) => str5.repeat(multiplier);
+// const stringProvaMulti2 = multiStringLambda ('Credere \n', 25);
+// console.log(stringProvaMulti2);
