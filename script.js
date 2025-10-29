@@ -529,28 +529,78 @@
 
 // function changeCharOrder(n) {
 //     let toChange = n.toString().split('').reverse().join('');
-//     return toChange;
+//     return Number(toChange);
 // }
 // console.log(changeCharOrder(598));
 
+//----------------------------VERSIONE CON UN CICLO-----------------------------//
+// function reverseNumber(n) {
+//     const nToString = String(n);
+//     let reversed = '';
+//     for (let i = nToString.length - 1; i >= 0; i--) {
+//         reversed += nToString[i];
+//     }
+//     return Number(reversed);
+// }
 
+// console.log(reverseNumber(598));
 
 //25) Tabellina
 //Scrivi una funzione tabellina che prenda un numero come parametro e stampi in console la tabellina di quel numero fino a 10.
 
 
 // function littleTab(n1) {
-// for (let i = 1; i <= 10; i++) {
-  //   const risultato = n1 * i;
-  //   console.log(n1 + 'x' + i + '=' + risultato);
+//     for (let i = 1; i <= 10; i++) {
+//         const risultato = n1 * i;
+//         console.log(n1 + 'x' + i + '=' + risultato);
+//     }
 // }
-// }
-// console.log(littleTab(5));
+// littleTab(5);
+
 
 //26) Fibonacci
 //Scrivi una funzione fibonacci che prenda un numero N come parametro e restituisca 
 // l’N-esimo numero della sequenza di Fibonacci.
 
+
+//----------------------SOLUZIONE DE PROF-------------------//
+
+// function fibo(pos) {
+//     let first= 0;
+//     let second= 1;
+
+//     if (pos === 1) {
+//         return first;
+//     }else if (pos === 2) {
+//         return second;
+//     }else if (pos > 2) {
+//         let next;
+//         for (let i = 3; i <= pos; i++) {
+//             next= first + second;
+//             first = second;
+//             second = next;
+//         }
+//         return next;
+//     }
+//     else { 
+//         console.log("ERRRROREEE!!");
+//     }
+// }
+// console.log(fibo(7));
+
+// //-------------------------------VERSIONE RICORSIVA-----------------------------//
+
+// function fiboRecursive(pos) {
+//     if (pos === 0) {
+//         return 0;
+//         }
+//     else if (pos === 1) {
+//         return 1;
+//     } else {
+//         return fiboRecursive(pos - 1) + fiboRecursive(pos - 2);
+//     }
+// }
+// console.log(fiboRecursive(7));
 // //---------------- soluzione a------------------------//
 // function fibonacci(n) {
 //   if (n <= 0) return 0;     // caso base
@@ -574,7 +624,7 @@
 // console.log(fibonacci(6)); // ->  8
 
 // //----------------------------------------- soluzione b-----------------------------------//
-// ///---------------- ricorsiva----------------------------//
+// //---------------- ricorsiva----------------------------//
 // function fibonacci(n) {
 //   if (n <= 0) return 0;   // caso base
 //   if (n === 1) return 1;  // caso base
@@ -627,10 +677,10 @@
 //Scrivi una funzione applicaSconto che prenda due numeri come parametri (prezzo e percentuale di sconto) e restituisca il prezzo scontato.
 
 
-// function applicaSconto(price, percentage) {
-//     let percentageFloat = percentage / 100;
-//     let discount = price * percentageFloat;
-//     let result = price - discount;
+// function applicaSconto(price, percent) {
+//     const percentFloat = percent / 100;
+//     const discount = price * percentFloat;
+//     constresult = price - discount;
 //     return result;
 // }
 
@@ -638,8 +688,8 @@
 // console.log(applicaSconto(100, 5));
 
 //---------------------------------------VERSIONE PIU CORTA--------------------------------------------------//
-// function applicaSconto(price, percentage) {
-//     let discount = (price- ((percentage / 100) * price));
+// function applicaSconto(price, percent) {
+//     const discount = (price- (price* (percent / 100)));
 //     return discount;
 // }
 // console.log(applicaSconto(100, 20));
@@ -651,7 +701,7 @@
 //---formula  matematica----> (5 °C × 9/5) + 32 = 41 °F
 
 // function convertiGradi(c) {
-//     let fahrenheit = (c * (9/5)) + 32;
+//     const fahrenheit = (c * (9/5)) + 32;
 //     return fahrenheit;
 // }
 
@@ -687,4 +737,89 @@ console.log(checkPwd('25mh'));           // ---> false
 console.log(checkPwd('25mhdh54'));       // ---> false
 console.log(checkPwd('25cacca4'));       // ---> false
 console.log(checkPwd('kJMhdhrg'));       // ---> false
-console.log(checkPwd('kJMhd%jà'));       // ---> false
+console.log(checkPwd('kJMhd%jà'));       // ---> true
+
+
+//-----------------------------VERSIONE DEL PROF-------------------------------//
+
+function checkPassword(password) {
+    if (password.length < 8) {
+        return false;
+    }
+    else {
+        if (password.toLowwerCase() === password) {
+            return false;
+        }
+        else {
+            if (password.includes('!')
+                || password.includes('#')
+                || password.includes('@')
+                || password.includes('$')
+                || password.includes('%')) {
+                if (password.includes('cacca')) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+    }
+}
+
+//-------------------------PIU OTTIMIZZATA----------------------------------//
+
+function hasSpecialCharacters(str) {
+    if (password.includes('!')
+        || password.includes('#')
+        || password.includes('@')
+        || password.includes('$')
+        || password.includes('%')) {
+        return true;
+    }
+    else {
+        return false;
+    }       
+}
+function containsUpperCaseChar(str) {
+    if (str.toLowerCase() === str) {
+        return false;
+    }
+    else {
+        return true;
+    } 
+}
+function isTooShort(str) {
+    if (str.length < 8) {
+        return true;
+    }
+    else {
+        return false;
+    }
+} 
+
+function containsCacca(str) {
+    if (str.includes('cacca')) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}   
+
+function checkPassword(password) {
+    if (isTooShort(password)) {
+        return false;
+    } else if (!containsUpperCaseChar(password)) {
+        return false;
+    } else if (!hasSpecialCharacters(password)) {
+        return false;
+    } else if (containsCacca(password)) {
+        return false;
+    } else {
+        return true;
+    }
+}
