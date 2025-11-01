@@ -715,111 +715,272 @@
 // - Contiene almeno un carattere speciale tra questi '!#@$%'
 // - Non contiene la parola 'cacca'
 
-function checkPwd(pwd) {
-    if (pwd.length <8 ) return false;           // controlliamo la lunghezza
-    if (pwd.includes('cacca')) return false;   // controlliamo se contiene cacca
+// function checkPwd(pwd) {
+//     if (pwd.length <8 ) return false;           // controlliamo la lunghezza
+//     if (pwd.includes('cacca')) return false;   // controlliamo se contiene cacca
 
-    let hasUpperChar= false;                 
-    let hasSpecialChar = false;
-    for (let i = 0; i < pwd.length; i++) {
-        const element = pwd[i];
-        if(element>='A' && element<='Z') {
-            hasUpperChar= true;   
-        }
-        if (element ==='!' || element=== '#' || element==='@' || element==='$'|| element==='%') { 
-            hasSpecialChar= true;
-        }
-        if(hasUpperChar && hasSpecialChar) break;
-    } 
-    return hasUpperChar && hasSpecialChar;
-}
-console.log(checkPwd('25mh'));           // ---> false
-console.log(checkPwd('25mhdh54'));       // ---> false
-console.log(checkPwd('25cacca4'));       // ---> false
-console.log(checkPwd('kJMhdhrg'));       // ---> false
-console.log(checkPwd('kJMhd%jà'));       // ---> true
+//     let hasUpperChar= false;                 
+//     let hasSpecialChar = false;
+//     for (let i = 0; i < pwd.length; i++) {
+//         const element = pwd[i];
+//         if(element>='A' && element<='Z') {
+//             hasUpperChar= true;   
+//         }
+//         if (element ==='!' || element=== '#' || element==='@' || element==='$'|| element==='%') { 
+//             hasSpecialChar= true;
+//         }
+//         if(hasUpperChar && hasSpecialChar) break;
+//     } 
+//     return hasUpperChar && hasSpecialChar;
+// }
+// console.log(checkPwd('25mh'));           // ---> false
+// console.log(checkPwd('25mhdh54'));       // ---> false
+// console.log(checkPwd('25cacca4'));       // ---> false
+// console.log(checkPwd('kJMhdhrg'));       // ---> false
+// console.log(checkPwd('kJMhd%jà'));       // ---> true
 
 
-//-----------------------------VERSIONE DEL PROF-------------------------------//
+// //-----------------------------VERSIONE DEL PROF-------------------------------//
 
-function checkPassword(password) {
-    if (password.length < 8) {
-        return false;
-    }
-    else {
-        if (password.toLowwerCase() === password) {
-            return false;
-        }
-        else {
-            if (password.includes('!')
-                || password.includes('#')
-                || password.includes('@')
-                || password.includes('$')
-                || password.includes('%')) {
-                if (password.includes('cacca')) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            }
-            else {
-                return false;
-            }
-        }
-    }
-}
+// function checkPassword(password) {
+//     if (password.length < 8) {
+//         return false;
+//     }
+//     else {
+//         if (password.toLowwerCase() === password) {
+//             return false;
+//         }
+//         else {
+//             if (password.includes('!')
+//                 || password.includes('#')
+//                 || password.includes('@')
+//                 || password.includes('$')
+//                 || password.includes('%')) {
+//                 if (password.includes('cacca')) {
+//                     return false;
+//                 }
+//                 else {
+//                     return true;
+//                 }
+//             }
+//             else {
+//                 return false;
+//             }
+//         }
+//     }
+// }
 
 //-------------------------PIU OTTIMIZZATA----------------------------------//
 
-function hasSpecialCharacters(str) {
-    if (password.includes('!')
-        || password.includes('#')
-        || password.includes('@')
-        || password.includes('$')
-        || password.includes('%')) {
-        return true;
-    }
-    else {
-        return false;
-    }       
-}
-function containsUpperCaseChar(str) {
-    if (str.toLowerCase() === str) {
-        return false;
-    }
-    else {
-        return true;
-    } 
-}
-function isTooShort(str) {
-    if (str.length < 8) {
-        return true;
-    }
-    else {
-        return false;
-    }
-} 
+// function hasSpecialCharacters(str) {
+//     if (password.includes('!')
+//         || password.includes('#')
+//         || password.includes('@')
+//         || password.includes('$')
+//         || password.includes('%')) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }       
+// }
+// function containsUpperCaseChar(str) {
+//     if (str.toLowerCase() === str) {
+//         return false;
+//     }
+//     else {
+//         return true;
+//     } 
+// }
+// function isTooShort(str) {
+//     if (str.length < 8) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// } 
 
-function containsCacca(str) {
-    if (str.includes('cacca')) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}   
+// function containsCacca(str) {
+//     if (str.includes('cacca')) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// }   
 
-function checkPassword(password) {
-    if (isTooShort(password)) {
-        return false;
-    } else if (!containsUpperCaseChar(password)) {
-        return false;
-    } else if (!hasSpecialCharacters(password)) {
-        return false;
-    } else if (containsCacca(password)) {
-        return false;
-    } else {
-        return true;
+// function checkPassword(password) {
+//     if (isTooShort(password)) {
+//         return false;
+//     } else if (!containsUpperCaseChar(password)) {
+//         return false;
+//     } else if (!hasSpecialCharacters(password)) {
+//         return false;
+//     } else if (containsCacca(password)) {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
+
+
+// 31) Somma dei numeri fino a n
+// Scrivi una funzione sommaFinoAN(n) che restituisce la somma dei numeri da 1 a n.
+// sommaFinoAN(5) -> 1 + 2 + 3 + 4 + 5 -> 15
+
+// function sommaFinoAN(n) {
+//     let somma = 0;
+//     for (let i = 1; i <= n; i++) {
+//         somma += i;
+//     }
+//     return somma;
+// }
+
+// console.log(sommaFinoAN(5)); // -> 15
+
+//--------------------------------------------------- 29/10/2025----------------------------------------------------//
+// 32) Conteggio cifre
+// Scrivi una funzione contaCifre(num) che restituisce il numero di cifre di un numero
+// contaCifre(5) -> 1
+// contaCifre(1245) -> 4
+
+// function contaCifre(num) {
+//     const numString = num.toString();
+//     return numString.length;
+// }
+
+// console.log(contaCifre(5));    // -> 1
+// console.log(contaCifre(1245)); // -> 4
+
+
+// 33) Somma delle cifre
+// Scrivi una funzione sommaCifre(num) che restituisce la somma delle cifre di un numero
+// sommaCifre(5) -> 5
+// sommaCifre(1245) -> 12
+
+// function sommaCifre(num) {
+//     let numStr = num.toString();
+//     let somma = 0;
+//     for (let i = 0; i < numStr.length; i++) {
+//         somma += Number(numStr[i]);
+//     }
+//     return somma;
+// }
+
+// console.log(sommaCifre(5));    // -> 5
+// console.log(sommaCifre(1245)); // -> 12
+
+
+// 34) Conversione valuta
+// Scrivi una funzione euroToDollaro(euro) che converte un importo in euro in dollari (1 euro = 1.1 dollari).
+
+// function euroToDollaro(eur) {
+//     const dollar = eur* 1.15;  
+//     return dollar;
+// }   
+// console.log(euroToDollaro(10)); // -> 11.5
+
+
+// 35) Calcolo area rettangolo
+// Scrivi una funzione areaRettangolo(base, altezza) che restituisce l’area di un rettangolo.
+
+// function areaRettangolo(base, altezza) {
+//     const area= base* altezza;
+//     return area;    
+// }  
+// console.log(areaRettangolo(5, 10)); // -> 50
+
+
+
+// 36) Calcolo media
+// Scrivi una funzione media(a, b, c) che restituisce la media di tre numeri.
+
+///      formula - media= (somma dei valori) / (numero di element);
+// function media (a, b, c) {
+//     const mediaResult = ( a + b+ c) /3;
+//     return mediaResult;
+// }
+// console.log(media(3, 6, 9)); // -> 6
+
+
+// 37) Generatore di password casuale
+// Scrivi una funzione generaPasswordCasuale() che restituisce una password di 8 caratteri usando solo lettere maiuscole e numeri (usa Math.random())
+
+// function generaPasswordCasuale() {
+//     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+//     let password = '';
+//     for (let i = 0; i < 8; i++) {
+//         const randomPwd= Math.floor(Math.random() * characters.length);
+//         password += characters[randomPwd];
+//     }   
+//     return password;
+// }
+
+// console.log(generaPasswordCasuale());
+
+
+// 38) Potenza con ciclo
+// Scrivi una funzione potenzaCiclo(base, esponente) che calcola la potenza usando un ciclo.
+
+// function potenzaCiclo(base, esponente) {
+//     let result = 1;
+//     if (esponente === 0) {
+//         return 1;
+//     }
+//     for (let i = 0; i < esponente; i++) {
+//         result *= base;
+//     }   
+//     return result;
+// }
+// console.log(potenzaCiclo(4, 2)); // -> 8
+
+// 39) Scrivi un validatore di email con queste regole:
+// -deve contenere una @
+// -deve contenere un punto posizionato dopo la @
+// -le parti di testo prima della @ e tra la @ e il punto devono almeno avere tre lettere
+// -il punto non può essere l'ultimo carattere
+
+
+// function emailValidator(email) {
+//     const atIndex = email.indexOf('@');
+//     const dotIndex = email.indexOf('.');
+//     if (!email.includes('@')) {      //controlla se c'è la @
+//         return false;
+//     }
+//     //--------- controlla se la parte prima della @ ha almeno 3 caratteri, 
+//     // se il punto è dopo la @ e se tra la @ e il punto ci sono almeno 3 caratteri 
+//     // e se il punto non è l'ultimo carattere ----------------//
+//     else if (atIndex >= 3 && dotIndex > atIndex + 3 && dotIndex < email.length - 1) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// }
+ 
+// console.log(emailValidator('test@example.com')); // true
+// console.log(emailValidator('test@.com')); // false
+// console.log(emailValidator('@example.com')); // false
+// console.log(emailValidator('test@com.')); // false
+// console.log(emailValidator('test@example.c')); // true
+// console.log(emailValidator('te@example.com')); // false
+
+
+// 40) crea un converitore tra italiano e farfallino(https://it.wikipedia.org/wiki/Alfabeto_farfallino)
+
+function farfallino(str) {
+    let farfallinoStr = '';
+    const vowels = 'aeiouAEIOU';
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        farfallinoStr += char;
+        if (vowels.includes(char)) {
+            farfallinoStr += 'f' + char;
+        }
     }
+    return farfallinoStr;
 }
+console.log(farfallino('ciao')); // cifiafaofo"
+console.log(farfallino('programmazione')); // profograffammazionefone
+
