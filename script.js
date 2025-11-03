@@ -824,6 +824,7 @@
 //     }
 // }
 
+//--------------------------------------------------- 29/10/2025----------------------------------------------------//
 
 // 31) Somma dei numeri fino a n
 // Scrivi una funzione sommaFinoAN(n) che restituisce la somma dei numeri da 1 a n.
@@ -839,14 +840,14 @@
 
 // console.log(sommaFinoAN(5)); // -> 15
 
-//--------------------------------------------------- 29/10/2025----------------------------------------------------//
+
 // 32) Conteggio cifre
 // Scrivi una funzione contaCifre(num) che restituisce il numero di cifre di un numero
 // contaCifre(5) -> 1
 // contaCifre(1245) -> 4
 
 // function contaCifre(num) {
-//     const numString = num.toString();
+//     const numString = num.toString(); // string(nbr)
 //     return numString.length;
 // }
 
@@ -871,12 +872,29 @@
 // console.log(sommaCifre(5));    // -> 5
 // console.log(sommaCifre(1245)); // -> 12
 
+                    //--------------------------------ALTRO MODO FATTO DAL PROF----------------------------------------//
+
+// function sommaCifre(num) {
+//     let numStr = String(num);
+//     //debugger;  -----  per testare ogni passaggio del for sul browser
+//     let somma = 0;
+//     for (let i = 0; i < numStr.length; i++) {
+//         const nChar = numStr[i];
+//         const n = Number(nChar);
+//         somma += n;
+
+//     }
+//     return somma;
+// }
+
+// console.log(sommaCifre(5));    // -> 5
+// console.log(sommaCifre(1245)); // -> 12
 
 // 34) Conversione valuta
-// Scrivi una funzione euroToDollaro(euro) che converte un importo in euro in dollari (1 euro = 1.1 dollari).
+// Scrivi una funzione euroToDollaro(euro) che converte un importo in euro in dollari (1 euro = 1.15 dollari).
 
-// function euroToDollaro(eur) {
-//     const dollar = eur* 1.15;  
+// function euroToDollaro(euro) {
+//     const dollar = euro* 1.15;  
 //     return dollar;
 // }   
 // console.log(euroToDollaro(10)); // -> 11.5
@@ -886,7 +904,7 @@
 // Scrivi una funzione areaRettangolo(base, altezza) che restituisce l’area di un rettangolo.
 
 // function areaRettangolo(base, altezza) {
-//     const area= base* altezza;
+//     const area = base * altezza;
 //     return area;    
 // }  
 // console.log(areaRettangolo(5, 10)); // -> 50
@@ -896,10 +914,10 @@
 // 36) Calcolo media
 // Scrivi una funzione media(a, b, c) che restituisce la media di tre numeri.
 
-///      formula - media= (somma dei valori) / (numero di element);
+///      formula -> media= (somma dei valori) / (numero di element);
 // function media (a, b, c) {
-//     const mediaResult = ( a + b+ c) /3;
-//     return mediaResult;
+//     const average = ( a + b+ c) /3;
+//     return average;
 // }
 // console.log(media(3, 6, 9)); // -> 6
 
@@ -911,10 +929,24 @@
 //     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 //     let password = '';
 //     for (let i = 0; i < 8; i++) {
-//         const randomPwd= Math.floor(Math.random() * characters.length);
+//         const randomPwd= Math.floor(Math.random() * characters.length); // no si usa il meno 1 perche il floor arrotonda verso il basso
 //         password += characters[randomPwd];
 //     }   
 //     return password;
+// }
+  //---------------------------------------- VERSIONE PROF ----------------------------------//
+
+// function generaPasswordCasuale() {
+//     const avaiableCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ012345';
+//      let password = '';
+//     for (let i = 0; i < 8; i++) {
+//         const numeroRandomico = Math.random();
+//         const position = numeroRandomico  * avaiableCharacters.length -1; // si mette meno 1 perche si usa il round come arrotondamento
+//         const roundedPosition= Math.round(position);
+//         password += avaiableCharacters[roundedPosition];
+//     }   
+//     return password;
+    
 // }
 
 // console.log(generaPasswordCasuale());
@@ -924,16 +956,27 @@
 // Scrivi una funzione potenzaCiclo(base, esponente) che calcola la potenza usando un ciclo.
 
 // function potenzaCiclo(base, esponente) {
-//     let result = 1;
+//     let pow = 1;
 //     if (esponente === 0) {
 //         return 1;
 //     }
 //     for (let i = 0; i < esponente; i++) {
-//         result *= base;
+//         pow *= base;
 //     }   
-//     return result;
+//     return pow;
 // }
 // console.log(potenzaCiclo(4, 2)); // -> 8
+
+ //-----------------------------VERSIONE CORTA PROF------------------------------//
+// function potenzaCiclo(base, esponente) {
+//     let pow = base;
+//     for (let i = 1; i < esponente; i++) {
+//         pow *= base;
+//     }   
+//     return pow;
+// }
+// console.log(potenzaCiclo(4, 2)); // -> 8
+
 
 // 39) Scrivi un validatore di email con queste regole:
 // -deve contenere una @
@@ -951,6 +994,7 @@
 //     //--------- controlla se la parte prima della @ ha almeno 3 caratteri, 
 //     // se il punto è dopo la @ e se tra la @ e il punto ci sono almeno 3 caratteri 
 //     // e se il punto non è l'ultimo carattere ----------------//
+
 //     else if (atIndex >= 3 && dotIndex > atIndex + 3 && dotIndex < email.length - 1) {
 //         return true;
 //     }
@@ -958,29 +1002,126 @@
 //         return false;
 //     }
 // }
+
+ //-------------------------------------VERSIONE PROF-------------------------------//
+
+//      //---------------controlla se contiene @ ---------------//
+//  function containsAt(email) {
+//     if (email.includes('@')) {
+//         return true;
+//     }
+//     else{
+//         return false
+//     }
+    
+//  }
+
+//     //--------------------controlla la posizione del punto e la @ ----------------//
+// function containsDotAfterAt(email) {
+//     const dotPosition = email.indexOf('.');
+//     if (dotPosition === -1) {
+//         return false;
+//     }
+//     const atPosition = email.indexOf('@');
+//     if (dotPosition> atPosition) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+    
+// }
+//                      //--------------------controlla se ci sono piu di 3 caratteri prima la @ e del punto ----------------//
+// function firstAndSecondPartLengthIsTreeOrMore(email) {
+//     const atPosition = email.indexOf('@');
+//     const firstPart= email.substring(0,atPosition);
+
+//     const dotPosition = email.indexOf('.');
+//     const secondPart = email.substring(atPosition + 1, dotPosition);
+
+//     if (firstPart.length >= 3 && secondPart.length >= 3) {
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }
+
+//            //--------------------controlla se il punto non è nell'ultima posizione ----------------//
+//  function lastCharMustBeDifferentFromDot(email) {
+//     const lastPosition = email.length - 1;
+//     const lastChar= email[lastPosition];
+//     if (lastChar === '.') {
+//         return false;        
+//     }
+//     else{
+//         return true;
+//     }
+//  }
+
+//  function emailValidator(email) {
+//     if(!containsAt(email)){
+//         return false;
+//     }
+//     else if(!containsDotAfterAt(email)){
+//         return false;
+//     }
+//     else if (!firstAndSecondPartLengthIsTreeOrMore(email)) {
+//         return false;        
+//     }
+//     else if(!lastCharMustBeDifferentFromDot(email)){
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
+    
+//  }
  
-// console.log(emailValidator('test@example.com')); // true
-// console.log(emailValidator('test@.com')); // false
-// console.log(emailValidator('@example.com')); // false
-// console.log(emailValidator('test@com.')); // false
-// console.log(emailValidator('test@example.c')); // true
-// console.log(emailValidator('te@example.com')); // false
+// console.log(emailValidator('ciaociao')); // false
+// console.log(emailValidator('ciao@ciao')); // false
+// console.log(emailValidator('ci.ao@ciao')); // false
+// console.log(emailValidator('ciao@ciao.')); // false
+// console.log(emailValidator('ciao@cia.o')); // true
+// console.log(emailValidator('temo@example.com')); // true
 
 
 // 40) crea un converitore tra italiano e farfallino(https://it.wikipedia.org/wiki/Alfabeto_farfallino)
 
-function farfallino(str) {
-    let farfallinoStr = '';
-    const vowels = 'aeiouAEIOU';
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
-        farfallinoStr += char;
-        if (vowels.includes(char)) {
-            farfallinoStr += 'f' + char;
-        }
-    }
-    return farfallinoStr;
-}
-console.log(farfallino('ciao')); // cifiafaofo"
-console.log(farfallino('programmazione')); // profograffammazionefone
+// function farfallino(str) {
+//     let farfallinoStr = '';
+//     const vowels = 'aeiouAEIOU';
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+//         farfallinoStr += char;
+//         if (vowels.includes(char)) {
+//             farfallinoStr += 'f' + char;
+//         }
+//     }
+//     return farfallinoStr;
+// }
+// console.log(farfallino('ciao')); // cifiafaofo"
+// console.log(farfallino('programmazione')); // profograffammazionefone
 
+
+ //---------------------------------------VERSIONE PROF--------------------------//
+
+// function farfallinoTranslator(str) {
+//     const vowels = 'aeiou';
+//     let farfallinoStr = '';
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+        
+//         if (vowels.includes(char.toLowerCase())) {
+//             farfallinoStr += char + 'f'+ char;
+//         }
+//         else{
+//             farfallinoStr += char;
+//         }
+//     }
+//     return farfallinoStr;
+// }
+
+// console.log(farfallinoTranslator('ciao')); // cifiafaofo"
+// console.log(farfallinoTranslator('programmazione')); // profografammafazifiofonefe
+// console.log(farfallinoTranslator('viva la pausa!!')); // vifivafa lafa pafaufusafa!!
