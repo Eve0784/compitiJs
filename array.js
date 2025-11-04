@@ -121,19 +121,228 @@ let strings = ['pippo','pluto', 'topolino', 'leonardo'];
 
 // 3) Transformare tutte le stringe dell'array strings che iniziano per p al maiuscolo
 
-function arrayToUpperCaseWordStartingWithP(stringArray) {
-    const newArray = [];
-     for (let i = 0; i < stringArray.length; i++) {
-        const element = stringArray[i];
-        if (element[0] ==='p') {
-            const elementUpper = element.toUpperCase();
-            newArray.push(elementUpper);
-        }
-        else{
-            newArray.push(element)
-        }
-     }
-     return newArray;
-}
+// function arrayToUpperCaseWordStartingWithP(stringArray) {
+//     const newArray = [];
+//      for (let i = 0; i < stringArray.length; i++) {
+//         const element = stringArray[i];
+//         if (element[0] ==='p') {
+//             const elementUpper = element.toUpperCase();
+//             newArray.push(elementUpper);
+//         }
+//         else{
+//             newArray.push(element)
+//         }
+//      }
+//      return newArray;
+// }
 
-console.log(arrayToUpperCaseWordStartingWithP(strings));
+// console.log(arrayToUpperCaseWordStartingWithP(strings));
+
+//-----------------FILTER-> decide quali elementi dell'array tenere----------------------------------//
+
+//------------ scrivere una funzione che rimuove dell'array tutti i numeri dispari---------//
+
+// function removeOdd(nbrArray) {
+//     const newArray = [];
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+
+//         if (element % 2  === 0) {
+//             newArray.push(element)    
+//         }  
+//     }
+//      return newArray; 
+// } 
+// console.log(removeOdd(numbers));
+
+// //------------- scrivere una funzione che rimuova da un array di stringhe tutte quelle più corte di 6 caratteri---------//
+
+// function removeShorterThan6Char(strArray) {
+//     const newArray = [];
+//     for (let i = 0; i < strArray.length; i++) {
+//         const element = strArray[i];
+//         if (element.length > 6) {
+//             newArray.push(element);            
+//         }   
+//     }
+//     return newArray;
+// }
+// console.log(removeShorterThan6Char(strings));
+
+// //------------- scrivere una funzione che rimuova da un array di stringhe che iniziano per p---------//
+
+// function removeStartingWithP(strArray) {
+//     const newArray = [];
+//     for (let i = 0; i < strArray.length; i++) {
+//         const element = strArray[i];
+//         const elementLower = element.toLowerCase();
+//         if (elementLower[0] !=='p') {
+//             newArray.push(elementLower);            
+//         }   
+//     }
+//     return newArray;
+// }
+// console.log(removeStartingWithP(strings));
+
+//---------------scrivere una funzione che rimuova dall'array tutti i numeri negativi-----------------//
+
+// function keepPositiveNumbers(nbrArray) {
+//     const newArray = [];
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element >= 0) {
+//             newArray.push(element) 
+//         }   
+//     }
+//     return newArray;
+// } 
+// console.log(keepPositiveNumbers(numbers));
+
+//-----------------REDUCE-> TRASFORMA L ARRAY PRODUCENDO UN RISULTATO CHE DIPENDE DAI COMPONENTI DELL ARRAY----------------------------------//
+// const string1 = 'trasforma l array producendo un risultato che dipende dai componenti dell array'
+// const toUpperCase = string1.toUpperCase();
+// console.log(toUpperCase);
+
+//--------------- 1) scrivere una funzione che somma tutti i numeri di un array di numeri --------------------//
+
+// function sumAll(nbrArray) {
+//     let result = 0;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         result += element;
+//     }
+//     return result;
+// }
+// console.log(sumAll(numbers));
+
+// //--------------- 2) scrivere una funzione che calcola la media di un array di numeri --------------------//
+
+// function calculateAverage(nbrArray) {
+    
+//     let sum = 0;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         sum += element
+//     }
+//     const average = sum / nbrArray.length;
+//     return average;
+// }
+// console.log(calculateAverage(numbers));
+
+
+// //-----------chiamando la funzione di somma------------//
+
+// function calculateAverage2(nbrArray) {
+//     const sum = sumAll(nbrArray);
+//     const average = sum / nbrArray.length;
+//     return average;
+// }
+// console.log(calculateAverage2(numbers));
+
+   //----------------- 3) scrivere una funzione che genera una stringa composta dalle iniziale delle stringhe contenute in un array--------//
+
+//    function concatFirstChar(strArray) {
+//     let newString = '';
+//     for (let i = 0; i < strArray.length; i++) {
+//         const element = strArray[i];
+//         const firstChar = element[0];
+//         newString += firstChar;   
+//     }
+//     return newString;
+//    }
+//    console.log(concatFirstChar(strings));
+   
+//-------------- 4) scrivere una funzione che restituisce la somma delle lunghezze delle stringhe di un array -----------------------//
+
+// function sumLength(strArray) {
+//     let sumofLength = 0;
+//     for (let i = 0; i < strArray.length; i++) {
+//         const element = strArray[i];
+//         const length = element.length;
+//         sumofLength += length; 
+//     }
+//     return sumofLength;   
+// }
+// console.log(sumLength(strings));
+
+//-------------- 5) scrivere una funzione che trova il numero piu grande in un array -----------------------//
+
+// function findMax(nbrArray) {
+//     let max = 0;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element > max) {
+//             max = element;            
+//         }
+//     }
+//     return max;
+// }
+// console.log(findMax(numbers));
+
+//------------CONSTRUTTORE-------------------//
+
+// const pluto = new Array(); //---------- conts pluto = [];    equivalente---------//
+// console.log(pluto);
+
+// const pippo2 = new Array(3,5,8); //---------- conts pippo = [3,5,8];    equivalente---------//
+// console.log(pippo);
+
+// const paperino = new Array(10);  //---------- crea un array con 10 elementi/ posti vuoti dentro l'array-----------//
+// console.log(paperino);
+
+// for (const element of paperino) {
+//     console.log(element); //---------tutti undefined----------//
+// }
+
+// //------------------------indexOf---> della posizione di un elemento-----------------------------//
+// console.log(numbers.indexOf(100));
+// console.log(numbers.indexOf(9999)); //----------se l'elemento non è nell'array restituisce -1   ------//
+
+// //------------------------includes---> ci dice se un elemento è contenuto o meno -----------------------------//
+// console.log(numbers.includes(100));
+// console.log(numbers.includes(9999));
+
+// //------------------------concat--> ci permette di unire due array creandone uno nuovo -----------------------------//
+// const topolino = ['leonardo', 'mattia', 'daniel'];
+// const paperina = ['evelyn','salma','stefania'];
+// const gastone = topolino.concat(paperina);
+// console.log(gastone);
+
+//----------------------FUNZIONE MULTI PARAMETRICHE-------------------------------//
+
+// function sumAllParams(a,b,c) {
+//     const sum = a + b + c;
+//     return sum;    
+// }
+//--------invece di passare i parametri fissi si mettono i 3 puntini poi il nome che si vuole dare all'array, cosi si possono mettere dopo quanti parametri se ne vuole-----------//
+
+// function sumAllParams(...params) {
+//     let result = 0;
+//     for (let i = 0; i < params.length; i++) {
+//         const element = params[i];
+//         result += element;        
+//     }
+//     return result;
+// }
+// console.log(sumAllParams(2,5,6,7));
+
+//---------------ARRAY DI ARRAY------------------//
+const superArray = [[1, 2, 3] , [1, 1, 1] , [3, 2, 1]];
+// console.log(superArray.length);
+// console.log(superArray[0]);
+
+const arrayInterno = superArray[0];
+const element0dellArrayInterno = arrayInterno[0];
+
+// console.log(element0dellArrayInterno);
+// console.log(superArray[0][0]);
+
+
+for (let rowNumber = 0; rowNumber < superArray.length; rowNumber++) {
+    const row = superArray[rowNumber];
+    // console.log(row);
+    for (let columnNumber = 0; columnNumber < row.length; columnNumber++) {
+        const cell = row[columnNumber];
+        console.log(cell);   
+    }
+}
