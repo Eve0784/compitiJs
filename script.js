@@ -1231,3 +1231,91 @@ const pippo = [1, 2, 4, 56, 78, 11, -123, 3, -23, 2, 22, 4];
 // }
 
 // console.log(multiplyPoisitiveAndDivideNegative(pippo)) //-> [2, 4, 8, 112, 156, 22, -61.5, 6, -11.5, 4, 44, 8];
+
+
+// 43) Trova il Minimo
+// Scrivi una funzione trovaMinimo(array) che restituisce il numero più piccolo in un array di numeri.
+
+let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
+
+// function findMin(nbrArray) {
+//     let min = 0;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element < min) {
+//             min = element;            
+//         }
+//     }
+//     return min;
+// }
+// console.log(findMin(numbers2));
+
+
+
+// 44) Inverti Array con un ciclo
+// Scrivi una funzione invertiArray(array) che restituisce un nuovo array con gli elementi in ordine inverso.
+
+// function invertiArray(nbrArray) {
+//     let arrayInverted = [];
+//     for (let i = nbrArray.length-1; i >= 0; i--) {
+//         const element = nbrArray[i];
+//         arrayInverted.push(element);
+//     }
+//     return arrayInverted
+// }
+// console.log(invertiArray(numbers2));
+
+
+// 45) Maiuscolo Tutte le Parole
+// Scrivi una funzione maiuscoloTutto(array) che restituisce un nuovo array con tutte le stringhe in maiuscolo.
+
+// let strings = ['pippo','pluto', 'topolino', 'leonardo'];
+
+// function maiuscoloTutto(strArray) {
+//     let arrayToUpperCase = [];
+//     for (const element of strArray) {
+//         const upperCase = element.toUpperCase();
+//         arrayToUpperCase.push(upperCase);
+//     }
+//     return arrayToUpperCase;
+// }
+// console.log(maiuscoloTutto(strings));
+
+// 46) Somma Righe Matrice
+// Scrivi una funzione sommaRighe(matrice) che restituisce un array con la somma degli elementi di ogni riga.
+const superArray = [[1, 2, 3], 
+                    [1, 1, 1], 
+                    [3, 2, 1]];
+function sommaRighe(nbrArray) {
+    let sumRow = [];
+    for (let rowNumber = 0; rowNumber < nbrArray.length; rowNumber++) {
+        const row = nbrArray[rowNumber];
+       for (let columnNumber = 0; columnNumber < row.length; columnNumber++) {
+            const sumRowNum =+ columnNumber;
+            sumRow.push(sumRowNum);
+        }
+    } return sumRow;
+}
+
+console.log(sommaRighe(superArray));
+
+
+// 47) Conta Occorrenze
+// Scrivi una funzione contaOccorrenze(array, elemento) che conta quante volte un elemento appare in un array
+
+
+
+// 48) Filtra indice pari
+// Scrivi una funzione filtraIndicePari(array) che tiene tutti gli elementi in posizione dispari
+
+
+
+// 49) Somma pari 
+// Scrivi una funzione sommaPari(array) che somma tutti i numeri pari
+
+
+// 50) trova lunghezze
+// Scrivi una funzione trovaLunghezzeParola(array) che restituisce un array delle lunghezze(numeri) delle stringhe che compongono l'array in input
+
+
+
