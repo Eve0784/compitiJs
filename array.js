@@ -1,7 +1,7 @@
 // console.log('è il momento degli Array');
 
 // // -------------------ARRAY---------------------//
-let numbers = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20];
+let numbers = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 // console.log(numbers.length); // -> 10
 // console.log(numbers[3]); // -> 44
 
@@ -327,22 +327,22 @@ let strings = ['pippo','pluto', 'topolino', 'leonardo'];
 // console.log(sumAllParams(2,5,6,7));
 
 //---------------ARRAY DI ARRAY------------------//
-const superArray = [[1, 2, 3] , [1, 1, 1] , [3, 2, 1]];
-// console.log(superArray.length);
-// console.log(superArray[0]);
+// const superArray = [[1, 2, 3] , [1, 1, 1] , [3, 2, 1]];
+// // console.log(superArray.length);
+// // console.log(superArray[0]);
 
-const arrayInterno = superArray[0];
-const element0dellArrayInterno = arrayInterno[0];
+// const arrayInterno = superArray[0];
+// const element0dellArrayInterno = arrayInterno[0];
 
-// console.log(element0dellArrayInterno);
-// console.log(superArray[0][0]);
+// // console.log(element0dellArrayInterno);
+// // console.log(superArray[0][0]);
 
 
-for (let rowNumber = 0; rowNumber < superArray.length; rowNumber++) {
-    const row = superArray[rowNumber];
-    // console.log(row);
-    for (let columnNumber = 0; columnNumber < row.length; columnNumber++) {
-        const cell = row[columnNumber];
-        console.log(cell);   
-    }
-}
+// for (let rowNumber = 0; rowNumber < superArray.length; rowNumber++) {
+//     const row = superArray[rowNumber];
+//     // console.log(row);
+//     for (let columnNumber = 0; columnNumber < row.length; columnNumber++) {
+//         const cell = row[columnNumber];
+//         console.log(cell);   
+//     }
+// }
