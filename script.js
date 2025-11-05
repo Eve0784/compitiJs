@@ -1232,11 +1232,12 @@ const pippo = [1, 2, 4, 56, 78, 11, -123, 3, -23, 2, 22, 4];
 
 // console.log(multiplyPoisitiveAndDivideNegative(pippo)) //-> [2, 4, 8, 112, 156, 22, -61.5, 6, -11.5, 4, 44, 8];
 
-
+let numbers2 = [2, 4, 8, 112, 156, 22, -61.5, 6, -11.5, 4, 44, 8, 4];
+let stringsArray = ['pizza','spaghuetti', 'frittata', 'lasagne'];
 // 43) Trova il Minimo
 // Scrivi una funzione trovaMinimo(array) che restituisce il numero più piccolo in un array di numeri.
 
-let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
+// //----------questo dando min 0 potrebbe dare errore-----------------//
 
 // function findMin(nbrArray) {
 //     let min = 0;
@@ -1249,27 +1250,76 @@ let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 //     return min;
 // }
 // console.log(findMin(numbers2));
+// //-----------------questo sarebbe una soluzione piu senzata----------------//
 
+// function findMin(nbrArray) {
+//     let min = Infinity;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element < min) {
+//             min = element;            
+//         }
+//     }
+//     return min;
+// }
+// console.log(findMin(numbers2));
+
+// //------------------questo sarebbe migliore perche prende di partenza un num del array come partenza ossia il primo-------------------//
+
+// function findMin(nbrArray) {
+//     let min = array[0];
+//     for (let i = 1; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element < min) {
+//             min = element;            
+//         }
+//     }
+//     return min;
+// }
+// console.log(findMin(numbers2));
 
 
 //--------------- 44) Inverti Array con un ciclo-----------------------------------//
 // Scrivi una funzione invertiArray(array) che restituisce un nuovo array con gli elementi in ordine inverso.
 
-// function invertiArray(nbrArray) {
+// function invertiArray(array) {
 //     let arrayInverted = [];
-//     for (let i = nbrArray.length-1; i >= 0; i--) {
-//         const element = nbrArray[i];
+//     for (let i = array.length-1; i >= 0; i--) {
+//         const element = array[i];
 //         arrayInverted.push(element);
 //     }
 //     return arrayInverted
 // }
 // console.log(invertiArray(numbers2));
 
+// //-------------------SECONDO METODO------------------------//
+
+// function invertiArray2(array) {
+//     let newArray = [];
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[array.length - 1 - i];
+//         newArray.push(element);
+//     }
+//     return newArray
+// }
+// console.log(invertiArray2(numbers2));
+
+// //-------------------TERZO METODO------------------------//
+
+// function invertiArray3(array) {
+//     let newArray = [];
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+//         newArray.unshift(element);
+//     }
+//     return newArray
+// }
+// console.log(invertiArray3(numbers2));
+
 
 //--------------- 45) Maiuscolo Tutte le Parole--------------------------------//
 // Scrivi una funzione maiuscoloTutto(array) che restituisce un nuovo array con tutte le stringhe in maiuscolo.
 
-// let strings = ['pippo','pluto', 'topolino', 'leonardo'];
 
 // function maiuscoloTutto(strArray) {
 //     let arrayToUpperCase = [];
@@ -1279,27 +1329,43 @@ let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 //     }
 //     return arrayToUpperCase;
 // }
-// console.log(maiuscoloTutto(strings));
+// console.log(maiuscoloTutto(stringsArray));
+// //----------------FATTO DAL PROF------------------------//
 
+// function maiuscoloTutto(array) {
+//    let newArray = []; 
+//     for (let i = 0; i < array.length; i++) {
+//       const selectedString = array[i];
+//       const upperCase = selectedString.toUpperCase();
+//       newArray.push(upperCase)
+// }
+// return newArray;
+// }
+
+// console.log(maiuscoloTutto(stringsArray));
 //---------------- 46) Somma Righe Matrice--------------------------------//
 // Scrivi una funzione sommaRighe(matrice) che restituisce un array con la somma degli elementi di ogni riga.
 
-// const superArray = [[1, 2, 3], 
+// const superArray = [[1, 2, 3, 6], 
 //                     [1, 1, 1], 
-//                     [3, 2, 1]];
-// function sommaRighe(nbrArray) {
-//     let sumRow = [];
-//     for (let rowNumber = 0; rowNumber < nbrArray.length; rowNumber++) {
-//         const row = nbrArray[rowNumber];
-//         let sum = 0;
-//         for (let colNumber = 0; colNumber < row.length; colNumber++) {
-//             const element = row[colNumber];
-//             sum += element;            
-//         }        sumRow.push(sum);
-//     }
-//     return sumRow;
+//                     [3, 2, 1, 2, 5]];
+
+// function sommaRighe(matrice) {
+//   let newArray = [];
+//   for (let rowNumber = 0; rowNumber < matrice.length; rowNumber++) {
+//     const row = matrice[rowNumber];
+//     let sum = 0;
+//     for (let colNumber = 0; colNumber < row.length; colNumber++) {
+//       const cell = row[colNumber];
+//       sum += cell;
+//     } newArray.push(sum);
+//   }
+//   return newArray;
 // }
 // console.log(sommaRighe(superArray));
+
+//-------------------FATTO DAL PROF E UGUALE AL MIO---------------------------//
+
 //-------------------CON FOROF---------------------------//
 // function sommaRighe(nbrArray) {
 //     let sumRow = [];
@@ -1327,7 +1393,24 @@ let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 //     }
 //     return counter; 
 // }
-// console.log(contaOccorrenze(numbers2, 20)); //-> 3
+// console.log(contaOccorrenze(numbers2, 4)); //-> 3
+
+//--------------------------FATTO DAL PROF----------------------------//
+
+// function contaOccorrenze(array, elemento) {
+//     let counter = 0;
+//     for (let i = 0; i < array.length; i++) {
+//         const selected = array[i];
+//         if (selected === elemento) {
+//             counter++;
+//         }
+//     }
+//     return counter; 
+// }
+// console.log(contaOccorrenze(numbers2, 4)); //-> 3
+// console.log(contaOccorrenze(numbers2, 8)); //-> 2
+// console.log(contaOccorrenze(numbers2, 2)); //-> 1
+// console.log(contaOccorrenze(numbers2, 1000)); //-> 0
 
 
 //----------------- 48) Filtra indice pari -------------------------------//
@@ -1343,8 +1426,22 @@ let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 //     }
 //     return newArray;
 // }
+// console.log(filtraIndicePari(numbers2)); //-> [ 4, 112, 22, 6, 4, 8 ]
 
-// console.log(filtraIndicePari(numbers2)); //-> [10, 44, 0, 1.5, 20];
+// //---------------------------FATTO DAL PROF------------------------------//
+
+// function filtraIndicePari(array) {
+//     let newArray = [];
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+//         if (i % 2 === 1) {
+//             newArray.push(element);
+//         }
+//     }
+//     return newArray;
+// }
+// console.log(filtraIndicePari(numbers2)); //-> [ 4, 112, 22, 6, 4, 8 ]
+
 
 //----------------- 49) Somma pari --------------------------------------//
 // Scrivi una funzione sommaPari(array) che somma tutti i numeri pari
@@ -1358,22 +1455,56 @@ let numbers2 = [20, 10, 22, 44, 35, 0, -1, 1.5, 100, 20, 10, 20];
 //     }
 //     return sum;
 // }
-// console.log(sommaPari(numbers2)); //-> 246
+// console.log(sommaPari(numbers2)); //-> 366
+
+//-------------------------FATTO DAL PROF--------------------------//
+// function sommaPari(array) {
+//   let sum = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     const element = array[i];
+//     if (element % 2 === 0) {
+//       sum += element;
+//     }
+//   }
+//   return sum;
+// }
+// console.log(sommaPari(numbers2)); //-> 366
+
 
 
 //----------------- 50) trova lunghezze -------------------------------//
 // Scrivi una funzione trovaLunghezzeParola(array) che restituisce un array delle lunghezze(numeri) delle stringhe che compongono l'array in input
 
-// let strings2 = ['pippo','pluto', 'topolino', 'leonardo'];
 
-// function trovaLunghezzeParola(strArray) {
+
+// function trovaLunghezzeParola(array) {
 //     let lengthsArray = []; 
-//     for (const element of strArray) {
+//     for (const element of array) {
 //         const length = element.length;
 //         lengthsArray.push(length);
 //     }
 //     return lengthsArray;
 // }  
-// console.log(trovaLunghezzeParola(strings2)); //-> [5,5,8,8]
+// console.log(trovaLunghezzeParola(stringsArray)); //-> [ 5, 10, 8, 7 ]
 
+//----------------FATTO DAL PROF------------------------//
 
+// function trovaLunghezzeParola(stringArray) {
+//     let newArray = []; 
+//     for (let i = 0; i < stringArray.length; i++) {
+//       const selectedString = stringArray[i];
+//       const length = selectedString.length;
+//       newArray.push(length)
+//     }
+//     return newArray;
+// }  
+// console.log(trovaLunghezzeParola(stringsArray)); //-> [ 5, 10, 8, 7 ]
+
+//-----------in questo caso no si puo perche si sta riassegnando la constante
+// const pippo = 1;
+// pippo = pippo + 1;
+//-------------Invece qui non darà problemi perche si mantiene l'array solo si sta infilando un valore dentro dello stesso--------------//
+
+// const pluto = [3, 4];
+// pluto.push(6); // aggiungere e togliere è possibile
+// pluto = [1, 1, 1] // qui non è possibile perche sta assegnando un nuevo array a quello gia fatto
