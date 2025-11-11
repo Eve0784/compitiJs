@@ -1508,3 +1508,180 @@ let stringsArray = ['pizza','spaghuetti', 'frittata', 'lasagne'];
 // const pluto = [3, 4];
 // pluto.push(6); // aggiungere e togliere è possibile
 // pluto = [1, 1, 1] // qui non è possibile perche sta assegnando un nuevo array a quello gia fatto
+
+//-------------------ESERCIZI 10/11/2024   HIGH ORDER FUNCTION--------------------------//
+
+//------------------ FILTER HIGHER ORDER FUNCTION ------------------//
+function highFilter(array, conditionFunction) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];   
+        if (conditionFunction(element)){
+            newArray.push(element);
+        }
+    }
+    return newArray;
+}
+
+//------------------ MAP HIGHER ORDER FUNCTION ------------------//
+
+function highMap(array, transformFunction) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        const newElement = transformFunction(element,i);
+        newArray.push(newElement);     
+    }
+    return newArray;
+}
+
+//------------------- REDUCE HIGHER ORDER FUNCTION ------------------//
+
+function highReduce(array, reduceFunction, startingValue) {
+    let accumulator = startingValue;
+    for (let i = 0; i < array.length; i++) {
+        const current = array[i];
+        accumulator = reduceFunction(accumulator, current, i);
+    }
+    return accumulator;
+}
+
+//----------------------RISOLVERE I SEGUENTI ESERCIZI IN TRE MODI:
+// 1) Usando i cicli for
+// 2) Usando le funzioni di ordine superiore (high order functions)
+// 3) Usando le funzioni di ordine superiore native di JavaScript (Array.filter, Array.map, Array.reduce)
+
+//------------------ 51) Scrivi una funzione che dato un array di numeri, crei un array con tutti i numeri maggiori di 100 ------------------//
+//------------------ VERSIONE CON FOR ------------------//
+
+// function filterGreaterThan100(nbrArray) {
+//     const newArray = [];
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const element = nbrArray[i];
+//         if (element > 100) {
+//             newArray.push(element);
+//         }
+//     }
+//     return newArray;
+// }
+// console.log(filterGreaterThan100(numbers2)); //-> [ 112, 156 ]
+
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function higherThan100(nbr) {
+//   if (nbr > 100) {
+//     return true;
+//   }
+//   else {
+//     return false
+//   }
+// }
+// console.log(highFilter(numbers2,higherThan100)); //-> [ 112, 156 ]
+
+// //------------------ VERSIONE CON FILTER NATIVE DI JS ------------------//
+// console.log(numbers2.filter(nbr => nbr > 100));
+
+
+//------------------ 52) Scrivi una funzione che dato un array di stringhe, crei un array con tutte le stringhe che finiscono con 'a' ------------------//
+//------------------ VERSIONE CON FOR ------------------//
+
+// function StrEndsWithA(strArray){
+//     const newArray = [];
+//     for (let i = 0; i < strArray.length; i++) {
+//       const str = strArray[i];
+
+//       if (str[str.length - 1] === 'a'){
+//         newArray.push(str);
+//       }
+//     }
+//      return newArray;
+// }
+   
+// console.log(StrEndsWithA(stringsArray)); //-> [ 'pizza', 'frittata']
+
+
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//  
+
+// function chackeIfEdnsWithA(str) {
+//   if (str[str.length - 1] === 'a' || str[str.length - 1] === 'A') {
+//     return true;
+//   }
+//   else {
+//     return false;
+//   }
+// }
+// console.log(highFilter(stringsArray, chackeIfEdnsWithA));
+// // //------------------ VERSIONE CON FILTER NATIVE DI JS ------------------//
+// console.log(stringsArray.filter(str => str[str.length -1] === 'a' || str[str.length -1] === 'A'));
+
+
+//------------------ 53) Scrivi una funzione che dato un array di numeri, crei un array con tutti i numeri divisible per 3 ------------------//
+
+//------------------ VERSIONE CON FOR ------------------//
+// function DivisibleBy3(nbrArray) {
+//   const newArray = [];
+//   for (let i = 0; i < nbrArray.length; i++) {
+//     const nbr = nbrArray[i];
+//     if (nbr % 3 === 0) {
+//       newArray.push(nbr);
+//     }
+//   }
+//   return newArray;
+// } 
+// console.log(DivisibleBy3(numbers2));
+
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function checkDivisibleBy3(nbr) {
+//   if (nbr % 3 ===0) {
+//     return true;
+//   }
+// }
+// console.log(highFilter(numbers2, checkDivisibleBy3));
+
+// //------------------ VERSIONE CON FILTER NATIVE DI JS ------------------//
+// console.log(numbers2.filter(nbr => nbr % 3 === 0));
+
+//------------------ 54) Scrivi una funzione che dato un array di numeri, crei un array con tutti i numeri elevati al cubo ------------------//
+
+//------------------ VERSIONE CON FOR ------------------//
+// function cubeArray(nbrArray) {
+//   const newArray = [];
+//   for (let i = 0; i < nbrArray.length; i++) {
+//     const element = nbrArray[i];
+//     const cube = element * element * element;
+//     newArray.push(cube);
+//   }
+//   return newArray;
+// }
+// console.log(cubeArray(numbers2));
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function cubeNbr(nbr) {
+//   return nbr*nbr*nbr;  
+// }
+// console.log(highMap(numbers2, cubeNbr));
+// //------------------ VERSIONE CON MAP NATIVE DI JS ------------------//
+// console.log(numbers2.map(nbr => nbr*nbr*nbr));
+
+//------------------ 55) Scrivi una funzione che dato un array di stringhe, crei un array con tutte le stringhe con la primera lettera in maiuscola ------------------//
+
+//------------------ VERSIONE CON FOR ------------------//
+function FirstChar(strArray) {
+  const newArray = [];
+  for (let i = 0; i < strArray.length; i++) {
+    const str = strArray[i];
+    const firstCharUpper = str[0];
+    const firstCharUpperCase = firstCharUpper.toUpperCase();
+    const restOfString = str.slice(1, str.length);
+    const newStr = firstCharUpperCase + restOfString;
+    newArray.push(newStr);
+  }
+  return newArray;
+}
+console.log(FirstChar(stringsArray));
+//------------------ 56) Scrivi una funzione che dato un array di numeri, crei un array di stringhe di cancelletti 
+// lunga quanto il numero originale    es---> [3,4,1,0] --> ['###', '####', '#', '']------------------//
+//------------------ 57) Scrivi una funzione che dato un array di numeri, le moltiplichi tutti tra loro------------------//
+//------------------ 58) Scrivi una funzione che dato un array di stringhe, crei una stringa composta dalle prime tre lettere delle stringhe origirarie ------------------//
+//------------------ 59) Scrivi una funzione che dato un array di numeri,  trovi il maggiore ------------------//
+
+//-------------------60)Scrivi una funzione che, dato un array di stringhe, trovi la stringa con più volte ripetuta la lettera t;------------------//
+

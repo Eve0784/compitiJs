@@ -171,21 +171,76 @@ function highMap(array, transformFunction) {
 // //---------------------Usa il metodo map incluso in JS ---------------------//
 // console.log(numbers0.map( (nbr) => nbr * 3 ));
 //---------------------Funzione di trasformazione che trasforma in maiuscolo le stringhe---------------------//
-function stringToUpperCase(str) {
-    return str.toUpperCase();
-}
-console.log(highMap(testArray, stringToUpperCase));
-//------------------------ con la Lambda -----------------------//
-console.log(highMap(testArray, (str) => str.toUpperCase() ));
-//---------------------Usa il metodo map incluso in JS ---------------------//
-console.log(testArray.map( (str) => str.toUpperCase() ));
+// function stringToUpperCase(str) {
+//     return str.toUpperCase();
+// }
+// console.log(highMap(testArray, stringToUpperCase));
+// //------------------------ con la Lambda -----------------------//
+// console.log(highMap(testArray, (str) => str.toUpperCase() ));
+// //---------------------Usa il metodo map incluso in JS ---------------------//
+// console.log(testArray.map( (str) => str.toUpperCase() ));
 
 //---------------------Funzione di trasformazione che moltiplica per la posizione le numeri---------------------//
-function multiplyNbrByPosition(nbr, i) {
-    return nbr * i;
-}
-console.log(highMap(numbers0, multiplyNbrByPosition));
-//------------------------ con la Lambda -----------------------//
-console.log(highMap(numbers0, (nbr, i) => nbr * i ));
-//---------------------Usa il metodo map incluso in JS ---------------------//
-console.log(numbers0.map( (nbr, i) => nbr * i ));
+// function multiplyNbrByPosition(nbr, i) {
+//     return nbr * i;
+// }
+// console.log(highMap(numbers0, multiplyNbrByPosition));
+// //------------------------ con la Lambda -----------------------//
+// console.log(highMap(numbers0, (nbr, i) => nbr * i ));
+// //---------------------Usa il metodo map incluso in JS ---------------------//
+// console.log(numbers0.map( (nbr, i) => nbr * i ));
+
+//--------------------- METODO REDUCE ---------------------//
+//---------------------Funzione che calcola la somma di tutti i numeri di un array---------------------//
+// function sumAll(nbrArray) {
+//     let sum = 0;
+//     for (let i = 0; i < nbrArray.length; i++) {
+//         const nbr = nbrArray[i];
+//         sum += nbr;     
+//     }
+//     return sum;
+// }
+// console.log(sumAll(numbers0));
+// //--------------------- Funzione che accumula tutte le iniziali delle stringhe di un array in una singola stringa ---------------------//
+// function stringWithFirstChar(strArray) {
+//     let newString = '';
+//     for (let i = 0; i < strArray.length; i++) {
+//         const str = strArray[i];
+//         const firstChar = str[0];
+//         newString += firstChar;     
+//     }
+//     return newString;
+// }
+// console.log(stringWithFirstChar(testArray));
+
+
+//---------------------Funzione (HIGH ORDER) GENERICA CHE ACCUMULA I VALORI DI UN ARRAY IN BASE A UNA FUNZIONE DI ACCUMULO (REDUZIONE)---------------------//
+// function highReduce(array, reduceFunction, startingValue) {
+//     let accumulator = startingValue;
+//     for (let i = 0; i < array.length; i++) {
+//         const current = array[i];
+//         accumulator = reduceFunction(accumulator, current, i);
+//     }
+//     return accumulator;
+// }
+//---------------------Funzione di accumulo che calcola la somma di tutti i numeri---------------------//
+// function sumAccumulator(sum, nbr) {
+//     return sum + nbr;
+// } 
+// console.log(highReduce(numbers0, sumAccumulator , 0));
+
+// //------------------------ con la Lambda -----------------------//
+// console.log(highReduce(numbers0, (sum,nbr) => sum + nbr , 0));
+// // //---------------------Usa il metodo reduce incluso in JS ---------------------//
+// console.log(numbers0.reduce( (sum,nbr) => sum + nbr , 0));
+
+// //---------------------Funzione di accumulo che accumula tutte le iniziali delle stringhe in una singola stringa---------------------//
+// function sumfirstChar(acc, curr) {
+//     const firstChar = curr[0];
+//     return acc + firstChar;
+// } 
+// console.log(highReduce(testArray, sumfirstChar, ''));
+// //---------------------Usa il metodo reduce incluso in JS ---------------------//
+// console.log(testArray.reduce(sumfirstChar, ''));
+// //------------------------ con la Lambda -----------------------//
+// console.log(testArray.reduce((acc, curr) => acc + curr[0], ''));
