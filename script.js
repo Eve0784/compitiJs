@@ -1551,6 +1551,8 @@ function highReduce(array, reduceFunction, startingValue) {
 // 2) Usando le funzioni di ordine superiore (high order functions)
 // 3) Usando le funzioni di ordine superiore native di JavaScript (Array.filter, Array.map, Array.reduce)
 
+//------------------- FILTER----------------------------------//
+
 //------------------ 51) Scrivi una funzione che dato un array di numeri, crei un array con tutti i numeri maggiori di 100 ------------------//
 //------------------ VERSIONE CON FOR ------------------//
 
@@ -1640,6 +1642,8 @@ function highReduce(array, reduceFunction, startingValue) {
 // //------------------ VERSIONE CON FILTER NATIVE DI JS ------------------//
 // console.log(numbers2.filter(nbr => nbr % 3 === 0));
 
+
+//---------------------------MAP
 //------------------ 54) Scrivi una funzione che dato un array di numeri, crei un array con tutti i numeri elevati al cubo ------------------//
 
 //------------------ VERSIONE CON FOR ------------------//
@@ -1664,24 +1668,186 @@ function highReduce(array, reduceFunction, startingValue) {
 //------------------ 55) Scrivi una funzione che dato un array di stringhe, crei un array con tutte le stringhe con la primera lettera in maiuscola ------------------//
 
 //------------------ VERSIONE CON FOR ------------------//
-function FirstChar(strArray) {
-  const newArray = [];
-  for (let i = 0; i < strArray.length; i++) {
-    const str = strArray[i];
-    const firstCharUpper = str[0];
-    const firstCharUpperCase = firstCharUpper.toUpperCase();
-    const restOfString = str.slice(1, str.length);
-    const newStr = firstCharUpperCase + restOfString;
-    newArray.push(newStr);
-  }
-  return newArray;
-}
-console.log(FirstChar(stringsArray));
+// function FirstChar(strArray) {
+//   const newArray = [];
+//   for (let i = 0; i < strArray.length; i++) {
+//     const str = strArray[i];
+//     const firstCharUpper = str[0].toUpperCase();
+//     const restOfString = str.slice(1, str.length);
+//     const newStr = firstCharUpper + restOfString;
+//     newArray.push(newStr);
+//   }
+//   return newArray;
+// }
+// console.log(FirstChar(stringsArray));
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function firstCharUpperCase(str) {
+//   const firstCharUpper = str[0].toUpperCase();
+//   const restOfString = str.slice(1, str.length);
+//   const newStr = firstCharUpper + restOfString;
+//   return newStr;
+// }
+// console.log(highMap(stringsArray, firstCharUpperCase));
+// //------------------ VERSIONE CON MAP NATIVE DI JS ------------------//
+// console.log(stringsArray.map(str => str[0].toUpperCase() + str.slice(1, str.length)));  
+
+
 //------------------ 56) Scrivi una funzione che dato un array di numeri, crei un array di stringhe di cancelletti 
 // lunga quanto il numero originale    es---> [3,4,1,0] --> ['###', '####', '#', '']------------------//
+
+//------------------ VERSIONE CON FOR ------------------//
+// const numbers3 = [3, 4, 1, 0];
+
+// function hashArray(nbrArray) {
+//   const newArray = [];
+//   for (let i = 0; i < nbrArray.length; i++) {
+//     const nbr = nbrArray[i];
+//     let hashString = '';
+//     for (let j = 0; j < nbr; j++) {
+//       hashString += '#';
+//     }
+//     newArray.push(hashString);
+//   }
+//   return newArray;
+// }
+// console.log(hashArray(numbers3));
+
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function createHashString(nbr) {
+//   let hashString = '';
+//   for (let j= 0; j < nbr; j++) {
+//     hashString += '#';
+//   }
+//   return hashString;
+// }
+// console.log(highMap(numbers3, createHashString));
+// //------------------ VERSIONE CON MAP NATIVE DI JS ------------------//
+// console.log(numbers3.map(nbr => {
+//   let hashString = '';
+//   for (let j= 0; j < nbr; j++) {
+//     hashString += '#';
+//   }
+//   return hashString;
+// }
+// ));
+// //----------------con metodo repeat----------------//
+// console.log(numbers3.map(n => '#'.repeat(n)));
+
+
+//--------------------------------REDUCE----------------------------------//
 //------------------ 57) Scrivi una funzione che dato un array di numeri, le moltiplichi tutti tra loro------------------//
+//------------------ VERSIONE CON FOR ------------------//
+// function multiplyAll(nbrArray) {
+//   let accumulator = 1;
+//   for (let i = 0; i < nbrArray.length; i++) {
+//     const current = nbrArray[i];
+//     accumulator *= current;
+//   }
+//   return accumulator;
+// }
+// console.log(multiplyAll(numbers2));
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function multiplyTwoNbrs(accumulator, current) {
+//   return accumulator * current;
+// }
+// console.log(highReduce(numbers2, multiplyTwoNbrs, 1));
+// //------------------ VERSIONE CON REDUCE NATIVE DI JS ------------------//
+// console.log(numbers2.reduce((accumulator, current) => accumulator * current, 1));
+
+
 //------------------ 58) Scrivi una funzione che dato un array di stringhe, crei una stringa composta dalle prime tre lettere delle stringhe origirarie ------------------//
+//------------------ VERSIONE CON FOR ------------------//
+// function firstThreeLettersStrArray(strArray) {
+//   let newString = '';
+//   for (let i = 0; i < strArray.length; i++) {
+//     const str = strArray[i];
+//     const firstThreeLetters = str.slice(0, 3);
+//     newString += firstThreeLetters;
+//   }
+//   return newString;
+// }
+// console.log(firstThreeLettersStrArray(stringsArray));
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function getFirstThreeLetters(str) {
+//   return str.slice(0, 3);
+// } 
+// console.log(highReduce(stringsArray, (acc, curr) => acc + getFirstThreeLetters(curr), ''));
+
+// //------------------ VERSIONE CON REDUCE NATIVE DI JS ------------------//
+// console.log(  stringsArray.reduce((acc, curr) => acc + curr.slice(0, 3), ''));
+
+
 //------------------ 59) Scrivi una funzione che dato un array di numeri,  trovi il maggiore ------------------//
+//------------------ VERSIONE CON FOR ------------------//
+// function findMaxNum(nbrArray) {
+//   let max = nbrArray[0];
+//   for (let i = 0; i < nbrArray.length; i++) {
+//     const nbr = nbrArray[i];
+//     if (nbr > max) {
+//       max = nbr;
+//     }
+//   }
+//   return max;
+// }
+// console.log(findMaxNum(numbers2));
+
+// //------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+// function getMax(accumulator, current) {
+//   if (current > accumulator) {
+//     return current;
+//   } else {
+//     return accumulator;
+//   }
+// }
+// console.log(highReduce(numbers2, getMax, numbers2[0])); 
+// //------------------ VERSIONE CON REDUCE NATIVE DI JS ------------------//
+// console.log(numbers2.reduce((accumulator, current) => current > accumulator ? current : accumulator, numbers2[0]));
+
 
 //-------------------60)Scrivi una funzione che, dato un array di stringhe, trovi la stringa con più volte ripetuta la lettera t;------------------//
+//------------------ VERSIONE CON FOR ------------------//
+function stringWithMostT(strArray) {
+  let stringMaxT = '';
+  let maxTCounter = 0;
+  for (let i = 0; i < strArray.length; i++) {
+    const str = strArray[i];
+    let tCounter = 0;
+    for (let j = 0; j < str.length; j++) {
+      const char = str[j];
+      if (char.toLowerCase() === 't') {
+        tCounter++;
+      }
+    }
+    if (tCounter > maxTCounter) {
+      maxTCounter = tCounter;
+      stringMaxT = str;
+    }
+  }
+  return stringMaxT;
+}
+console.log(stringWithMostT(stringsArray));
+//------------------ VERSIONE CON HIGHER ORDER FUNCTION ------------------//
+function countTsInString(str) {
+  let tCounter = 0;
+  for (let j = 0; j < str.length; j++) {
+    const char = str[j];
+    if (char.toLowerCase() === 't') {
+      tCounter++;
+    }
+  }
+  return tCounter;
+}
+function getStringWithMostTs(accumulator, current) {
+  const currentTCounter = countTsInString(current);
+  const accumulatorTCounter = countTsInString(accumulator);
+  if (currentTCounter > accumulatorTCounter) {
+    return current;
+  }
+  else {
+    return accumulator;
+  }
+}
+console.log(highReduce(stringsArray, getStringWithMostTs, ''));
+//------------------ VERSIONE CON REDUCE NATIVE DI JS ------------------//
+console.log(stringsArray.reduce((acc, curr) => countTsInString(curr) > countTsInString(acc) ? curr : acc, ''));
 
