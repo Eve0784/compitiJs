@@ -1873,54 +1873,54 @@ function highReduce(array, reduceFunction, startingValue) {
 
 
 //--------------------------------------VERSIONE DEL PROF-----------------------------------------------//
-function counT(str) {
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
-        const upperChar = char.toUpperCase();
-        if (upperChar === 'T') {
-            count++;
-        }
+// function counT(str) {
+//     let count = 0;
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+//         const upperChar = char.toUpperCase();
+//         if (upperChar === 'T') {
+//             count++;
+//         }
         
-    }
-    return count;
-}
+//     }
+//     return count;
+// }
 
-function findStrWithMoreT(strArray) {
-    let accumulator = '';
-    let accumulatorTcount = 0;
-    for (const current of strArray) {
-        const currentTcount = counT(current);
-        if (currentTcount > accumulatorTcount) {
-            accumulator = current;
-            accumulatorTcount = currentTcount;
-        }        
-    }
-    return accumulator;
-}
-console.log(findStrWithMoreT(stringsArray));
+// function findStrWithMoreT(strArray) {
+//     let accumulator = '';
+//     let accumulatorTcount = 0;
+//     for (const current of strArray) {
+//         const currentTcount = counT(current);
+//         if (currentTcount > accumulatorTcount) {
+//             accumulator = current;
+//             accumulatorTcount = currentTcount;
+//         }        
+//     }
+//     return accumulator;
+// }
+// console.log(findStrWithMoreT(stringsArray));
 
-//----------------------------------------VERSIONE PIU BREVE Ma conta il accumulator ogni volta e potrebbe diventare menoso-----------------------------------//
-function findStrWithMoreT2(strArray) {
-    let accumulator = '';
-    for (const current of strArray) {
-        if (counT(current) > counT(accumulator)) {
-            accumulator = current;
-        }        
-    }
-    return accumulator;
-}
+// //----------------------------------------VERSIONE PIU BREVE Ma conta il accumulator ogni volta e potrebbe diventare menoso-----------------------------------//
+// function findStrWithMoreT2(strArray) {
+//     let accumulator = '';
+//     for (const current of strArray) {
+//         if (counT(current) > counT(accumulator)) {
+//             accumulator = current;
+//         }        
+//     }
+//     return accumulator;
+// }
 
-//------------------HIGH ORDER FUNCTION------------------------------------------//
-function compareTnumber(acc, curr) {
-    if (counT(curr)> counT(acc)) {
-        return curr;
-    }
-    else{
-        return acc;
-    }
-}
+// //------------------HIGH ORDER FUNCTION------------------------------------------//
+// function compareTnumber(acc, curr) {
+//     if (counT(curr)> counT(acc)) {
+//         return curr;
+//     }
+//     else{
+//         return acc;
+//     }
+// }
 
-console.log(findStrWithMoreT2(stringsArray));
-console.log(highReduce(stringsArray, compareTnumber,''));
-console.log(stringsArray.reduce(compareTnumber,''));
+// console.log(findStrWithMoreT2(stringsArray));
+// console.log(highReduce(stringsArray, compareTnumber,''));
+// console.log(stringsArray.reduce(compareTnumber,''));

@@ -244,3 +244,145 @@ function highMap(array, transformFunction) {
 // console.log(testArray.reduce(sumfirstChar, ''));
 // //------------------------ con la Lambda -----------------------//
 // console.log(testArray.reduce((acc, curr) => acc + curr[0], ''));
+
+
+const students = ['luis', 'alexander', 'stefania', 'eros', 'daniel', 'salma'];
+const nbrsArray = [30, 12, 5, 111, 300, 400, 1];
+//-------------------------------------------------------- FOREACH---------------------------------------------------------------//
+
+// for (let i = 0; i < students.length; i++) {
+//     const student = students[i];
+//     console.log(student);
+// }
+
+// for (const student of students) { console.log(student);}
+
+// students.forEach((student,i) => console.log(i,student));
+
+
+//--------------------------------------------------------FIND-----------------------------------------------------------------//
+function isGreaterThan100(nbr) {
+    return nbr > 100;    
+}
+
+function isGreaterThan5000(nbr) {
+    return nbr > 5000;    
+}
+// console.log(nbrsArray.filter(isGreaterThan100));
+// console.log(nbrsArray.find(isGreaterThan100));
+// console.log(nbrsArray.filter(isGreaterThan100)[0]);
+
+//------------------------------------------------------SOME-------------------------------------------------------------------//
+//-------------ritorna un true o un false dependiendo della funzione di condizione usata dentro del some-----//
+console.log(nbrsArray.some(isGreaterThan100));
+console.log(nbrsArray.some(isGreaterThan5000));
+
+
+//--------------------------------------------------SORT----------------------------------------------------------------------//
+//--------------------mettere in ordine gli elementi di un array-----------------------------------------//
+//--segue il ordinamento delle stringhe ma non ordinamento numerico. Se si vuole un orden numerico si deve dare un criterio --//
+// nbrsArray.sort();
+// console.log(nbrsArray);
+
+// students.sort();
+// console.log(students);
+
+//--------COMPARE FUNCTION----------//
+function compareNumbersAscending(n1,n2) {
+    // if (n1 > n2){
+    //     return 1;
+    // }
+    // else if (n2 > n1){
+    //     return -1;
+    // }
+    // else{
+    //     return 0;
+    // }
+    return n1 - n2;
+}
+
+function compareNumbersDescending(n1,n2) {
+    // if (n1 > n2){
+    //     return -1;
+    // }
+    // else if (n2 > n1){
+    //     return 1;
+    // }
+    // else{
+    //     return 0;
+    // }
+    return n2 - n1;
+}
+function compareStringsAscending(s1, s2){
+    return s1.localeCompare(s2);
+    
+}
+
+function compareStringsDescending(s1, s2){
+    //return -s1.localeCompare(s2);
+   return s2.localeCompare(s1);
+    
+}
+nbrsArray.sort(compareNumbersAscending);
+nbrsArray.sort((n1, n2) => -compareNumbersAscending(n1, n2));
+console.log(nbrsArray);
+
+students.sort(compareStringsAscending);
+console.log(students);
+
+students.sort(compareStringsDescending);
+console.log(students);
+
+const cars = [
+    {
+        model:"g-wagon",
+        producer: "mercedes",
+        maxSpeed: 180
+    },
+     {
+        model:"cla",
+        producer: "mercedes",
+        maxSpeed: 225
+    },
+     {
+        model:"panda",
+        producer: "fiat",
+        maxSpeed: 150
+    },
+     {
+        model:"bravo",
+        producer: "fiat",
+        maxSpeed: 180
+    },
+     {
+        model:"a4",
+        producer: "audi",
+        maxSpeed: 225
+    }
+]
+function compareCarsbySpeedDescending(car1, car2) {
+    return car2.maxSpeed - car1.maxSpeed;    
+}
+cars.sort(compareCarsbySpeedDescending);
+console.log(cars);
+
+function compareCarsByModelAscending(car1, car2) {
+    return car1.model.localeCompare(car2.model);    
+}
+// cars.sort(compareCarsByModelAscending);
+// console.log(cars);
+
+function compareCarsBySpeedDescendingAndModelAscending(car1, car2) {
+   if (car1.maxSpeed > car2.maxSpeed) {
+    return -1;    
+   }
+    else  if (car2.maxSpeed > car1.maxSpeed) {
+    return 1;    
+   }
+   else{
+    return car1.model.localeCompare(car2.model);
+    //return compareCarsByModelAscending;
+   }
+}
+cars.sort(compareCarsBySpeedDescendingAndModelAscending);
+console.log(cars);
