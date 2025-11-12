@@ -1881,8 +1881,9 @@ function counT(str) {
         if (upperChar === 'T') {
             count++;
         }
-        return count
+        
     }
+    return count;
 }
 
 function findStrWithMoreT(strArray) {
@@ -1899,4 +1900,27 @@ function findStrWithMoreT(strArray) {
 }
 console.log(findStrWithMoreT(stringsArray));
 
+//----------------------------------------VERSIONE PIU BREVE Ma conta il accumulator ogni volta e potrebbe diventare menoso-----------------------------------//
+function findStrWithMoreT2(strArray) {
+    let accumulator = '';
+    for (const current of strArray) {
+        if (counT(current) > counT(accumulator)) {
+            accumulator = current;
+        }        
+    }
+    return accumulator;
+}
 
+//------------------HIGH ORDER FUNCTION------------------------------------------//
+function compareTnumber(acc, curr) {
+    if (counT(curr)> counT(acc)) {
+        return curr;
+    }
+    else{
+        return acc;
+    }
+}
+
+console.log(findStrWithMoreT2(stringsArray));
+console.log(highReduce(stringsArray, compareTnumber,''));
+console.log(stringsArray.reduce(compareTnumber,''));
