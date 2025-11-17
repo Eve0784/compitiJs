@@ -1948,29 +1948,58 @@ const prodotti = [
 
 
 //------------------------61) mettere in ordine l'array di prodotti per prezzo dal più costoso in giù---------------------------------//
-// function orderPriceAscending(p1, p2) {
-//     return p2.prezzo - p1.prezzo;
+
+//----------------------------VERSIONE LUNGA--------------------------------//
+
+// function comparePricesDescending(prodotto1, prodotto2) {
+//   const prezzo1 = prodotto1.prezzo;
+//    const prezzo2 = prodotto2.prezzo;
+//    return prezzo2 - prezzo1;
 // }
-// prodotti.sort(orderPriceAscending)
+// prodotti.sort(comparePricesDescending);
 // console.log(prodotti);
 
-//62) mettere in ordine per nome discendente
+//----------------------------------VERSIONE CORTA------------------------------//
+
 // function orderPriceDescending(p1, p2) {
-//     return p1.prezzo  - p2.prezzo;
+//     return p2.prezzo - p1.prezzo;
 // }
-// prodotti.sort(orderPriceDescending);
+// prodotti.sort(orderPriceDescending)
+// console.log(prodotti);
+// //------------------------VERSIONE LAMBDA---------------------------------------//
+// prodotti.sort((p1, p2) => p2.prezzo - p1.prezzo);
+// console.log(prodotti);
+
+//---------------------------------62) mettere in ordine per nome discendente---------------------------------------------------------//
+// function orderByNameDescending(p1, p2) {
+//     return p2.nome.localeCompare(p1.nome);
+// }
+// prodotti.sort(orderByNameDescending);
+// console.log(prodotti);
+
+// prodotti.sort((p1, p2) => p2.nome.localeCompare(p1.nome));
 // console.log(prodotti);
 
 //---------------------------------63) mettere in ordine per categoria ascendente, e se uguali per peso dal più pesante--------------------//
 
-// function orderByCategoryAndWeigth(p1, p2) {
+// function orderByCategoryAndWeight(p1, p2) {
 //     return (
 //         p1.categoria.localeCompare(p2.categoria) ||
 //         p2.peso - p1.peso   // mayor peso primero
 //     );
 // }
-// prodotti.sort(orderByCategoryAndWeigth)
+// prodotti.sort(orderByCategoryAndWeight)
 // console.log(prodotti);
+//-------------------------------------------VERSIONE PROF--------------------------//
+// function compareCategoryAscAndWeightDesc(prod1, prod2) {
+//   if(prod1.categoria === prod2.categoria){
+//     return prod2.peso - prod1.peso;
+//   }
+//   return prod1.categoria.localeCompare(prod2.categoria);
+// }
+// prodotti.sort(compareCategoryAscAndWeightDesc);
+// console.log(prodotti);
+
 //-------------------------------- ALTRA VERSIONE--------------------------------//
 // function orderByCategoryAndWeigth(p1, p2) {
 //     // Primero comparar por categoría
@@ -2000,23 +2029,61 @@ const prodotti = [
 //   new Date(p1.vencimiento).getTime() - new Date(p2.vencimiento).getTime()
 // );
 
-//65) mettere in ordine per categoria discendente, se uguali per peso dal più piccolo, se uguali per nome ascendente
-function orderByCatPesoNome(p1, p2) {
-  // 1) Categoria discendente (Z → A)
-  const catCompare = p2.categoria.localeCompare(p1.categoria);
-  if (catCompare !== 0) {
-    return catCompare;
-  }
-  // 2) Peso ascendente (dal più piccolo)
-  else if (p1.peso !== p2.peso) {
-    return p1.peso - p2.peso;
-  }
-  else{
-     // 3) Nome ascendente (A → Z)
-  return p1.nome.localeCompare(p2.nome);
-  }
- 
-}
+//-------------------------------VERSIONE PROF-----------------------------------//
+// function compareYearsAsc(prod1, prod2) {
+//   const yearString1 = prod1.scadenza.slice(0,4);
+//   const yearString2 = prod2.scadenza.slice(0,4);
+//   const year1 = Number(yearString1);
+//   const year2 = Number(yearString2);
+//   return year1 - year2;
+// }
+// prodotti.sort(compareYearsAsc);
+// console.log(prodotti);
 
-prodotti.sort(orderByCatPesoNome);
-console.log(prodotti);
+//65) mettere in ordine per categoria discendente, se uguali per peso dal più piccolo, se uguali per nome ascendente
+// function orderByCatPesoNome(p1, p2) {
+//   // 1) Categoria discendente (Z → A)
+//   const catCompare = p2.categoria.localeCompare(p1.categoria);
+//   if (catCompare !== 0) {
+//     return catCompare;
+//   }
+//   // 2) Peso ascendente (dal più piccolo)
+//   else if (p1.peso !== p2.peso) {
+//     return p1.peso - p2.peso;
+//   }
+//   else{
+//      // 3) Nome ascendente (A → Z)
+//   return p1.nome.localeCompare(p2.nome);
+//   }
+ 
+// }
+
+// prodotti.sort(orderByCatPesoNome);
+// console.log(prodotti);
+
+//--------------------------------VERSIONE PROF---------------------------------------//
+// function compCatDescWeightAscNameDes(prod1, prod2) {
+//   if(prod1.categoria === prod2.categoria){
+//     if(prod1.peso === prod2.peso){
+//       prod1.nome.localeCompare(prod2.nome);
+//     }
+//     return prod1.peso - prod2.peso;
+//   }
+//   return prod2.categoria.localeCompare(prod1.categoria); 
+// }
+// prodotti.sort(compCatDescWeightAscNameDes);
+// console.log(prodotti);
+// //-------------------------------------ALTRA VERSIONE--------------------------------//
+
+// function compCatDescWeightAscNameDes2(prod1, prod2) {
+//   if(prod1.categoria !== prod2.categoria){
+//       return prod2.categoria.localeCompare(prod1.categoria); }
+//   else if(prod1.peso !== prod2.peso){
+//         return prod1.peso - prod2.peso;}
+//   else{
+//       prod1.nome.localeCompare(prod2.nome);
+//     }
+//   }
+
+// prodotti.sort(compCatDescWeightAscNameDes2);
+// console.log(prodotti);
