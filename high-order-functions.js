@@ -391,3 +391,27 @@ const nbrsArray = [30, 12, 5, 111, 300, 400, 1];
 // }
 // cars.sort(compareCarsBySpeedDescendingAndModelAscending);
 // console.log(cars);
+
+
+//---------------------------SORTING NOT IN PLACE-----------------------------------//
+const numbrs = [200, 2, -20, 12, 5, 1000];
+// const doubleNumbrs = numbrs.map((n) => n * 2);
+// console.log(doubleNumbrs);
+
+// console.log(numbrs);
+
+// const sortedNumbrs =numbrs.sort((n1, n2) => n1- n2);
+// console.log(sortedNumbrs);
+// console.log(numbrs);
+
+// function correctedSort(array, compareFn) {
+//     const clone = [...array];
+//     //const clone = new Array(...array);
+//     //const clone = Array.from(array);
+
+//     clone.sort(compareFn);
+//     return clone;
+// }
+// const sortedNumbrs = correctedSort(numbrs, ((n1, n2) => n1- n2));
+// console.log(sortedNumbrs);
+// console.log(numbrs);
